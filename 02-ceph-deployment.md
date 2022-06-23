@@ -12,15 +12,13 @@ Clone Ceph Repository
 
 Copy Requirement Files
 - `````cp site.yml.sample site.yml`````
-- `````cd group_vars/`````
-- `````cp all.yml.sample all.yml`````
-- `````cp mons.yml.sample mons.yml`````
-- `````cp osds.yml.sample osds.yml`````
-- `````cp mgrs.yml.sample mgrs.yml`````
-- `````cp mgrs.yml.sample mgrs.yml`````
-- `````cp mdss.yml.sample mdss.yml`````
+- `````cp group_vars/all.yml.sample group_vars/all.yml`````
+- `````cp mons.yml.sample group_vars/mons.yml`````
+- `````cp osds.yml.sample group_vars/osds.yml`````
+- `````cp group_vars/mgrs.yml.sample group_vars/mgrs.yml`````
+- `````cp group_vars/mdss.yml.sample group_vars/mdss.yml`````
 
-Edit file /etc/neutron/neutron.conf
+Edit file group_vars/all.yml
 - Adjust as below
   - `````---`````
   - `````dummy:`````
@@ -40,3 +38,21 @@ Edit file /etc/neutron/neutron.conf
   - `````dashboard_admin_password: [CEPH_ADMIN_PASSWORD]`````
   - `````dashboard_frontend_vip: [DASHBOARD_CEPH_ADDR]`````
   - `````grafana_admin_password:[CEPH_GRAFANA_PASSWORD]`````
+
+Edit file group_vars/osds.yml
+- Adjust as below
+  - `````---`````
+  - `````dummy:`````
+  - `````devices:`````
+  - `````  - /dev/sdb`````
+  - `````  - /dev/sdc`````
+  - `````osd_auto_discovery: false`````
+  - `````lvm_volumes:`````
+  - `````- data: hdd-data-lv`````
+    `````  data_vg: hdd-data-vg`````
+    `````  journal_lv: hdd-journal-lv`````
+    `````  crush_device_class: hdd`````
+  - `````- data: ssd-data-lv`````
+    `````  data_vg: ssd-data-vg`````
+    `````  journal_lv: ssd-journal-lv`````
+    `````  crush_device_class: ssd`````
