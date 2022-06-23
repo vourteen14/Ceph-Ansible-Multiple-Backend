@@ -38,3 +38,11 @@ Sistem Information Node 3
 - Harrdisk 3: 10G
 - Network 1: 10.10.10.113 - ens160
 
+SETUP Operating System
+- Add user to sudoer without password ( in case username is anggasuriana )
+  - `````sudo su >> enter password`````
+  - `````echo "anggasuriana ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/angga`````
+  - `````exit && sudo su````` ( if no ask password adding success )
+
+- Update and Upgrade Dependency
+- `````sudo apt update && sudo apt upgrade -y`````
