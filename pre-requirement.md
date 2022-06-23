@@ -18,6 +18,7 @@ Sistem Information Node 1
 - Harrdisk 3: 10G
 - Network 1: 10.10.10.110 - ens160
 
+Sistem Information Node 2
 - Hostname: ceph02
 - OS: Ubuntu 20.04
 - Memory: 4G
@@ -27,6 +28,7 @@ Sistem Information Node 1
 - Harrdisk 3: 10G
 - Network 1: 10.10.10.111 - ens160
 
+Sistem Information Node 3
 - Hostname: ceph03
 - OS: Ubuntu 20.04
 - Memory: 4G
