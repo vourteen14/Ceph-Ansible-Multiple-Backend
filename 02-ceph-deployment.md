@@ -38,5 +38,5 @@ Edit file /etc/neutron/neutron.conf
   - `````dashboard_port: 8443`````
   - `````dashboard_admin_user: admin`````
   - `````dashboard_admin_password: [CEPH_ADMIN_PASSWORD]`````
-  - `````dashboard_frontend_vip: [DASHBOARD_CEPH_ADDR]''`````
+  - `````dashboard_frontend_vip: [DASHBOARD_CEPH_ADDR]`````
   - `````grafana_admin_password:[CEPH_GRAFANA_PASSWORD]`````
