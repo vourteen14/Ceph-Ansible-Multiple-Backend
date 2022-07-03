@@ -111,9 +111,9 @@ $ ceph orch daemon add osd ceph03:data_devices=/dev/sdb,/dev/sdc
    - For SATA => https://github.com/vourteen14/Ceph-Ansible-Multiple-Backend/blob/main/Screenshot%202022-07-04%20001252.png
    - For SSD => https://github.com/vourteen14/Ceph-Ansible-Multiple-Backend/blob/main/Screenshot%202022-07-04%20001316.png
    
-#################   
+###########################   
 ## BACK TO CLI on Ceph01 ##
-#################
+###########################
 
 #######################
 # Upload file testing #
