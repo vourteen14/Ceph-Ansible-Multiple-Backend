@@ -55,8 +55,13 @@ $ sudo ./cephadm add-repo --release quincy
 $ sudo ./cephadm install
 $ sudo ./cephadm bootstrap --mon-ip 10.10.10.111
 
+############################################################################################
+## After bootstraping Ceph, it will show auth info for managing Ceph using GUI,          ###
+## Directly open the IP address and credentials provided or you will forget the password ###
+############################################################################################
 $ sudo ceph telemetry enable channel perf
 $ sudo ceph telemetry on --license sharing-1-0
+$ sudo ceph config set global osd_max_object_size 4G
 
 $ sudo ceph cephadm get-ssh-config > ssh_config
 $ sudo ceph config-key get mgr/cephadm/ssh_identity_key > key
@@ -90,11 +95,45 @@ $ ceph orch daemon add osd ceph03:data_devices=/dev/sdb,/dev/sdc
 ## CEPH INIT DONE ##
 ####################
 
-fallocate -l 2G test-file.img
-rados put test-file.img test-file.img --pool=test-pool
-ceph config set global osd_max_object_size 2G
+##################
+# CEPH GUI SETUP #
+##################
+1. Monitor Service Setup
+   - Go => Cluster => Service => Click mon => Click Edit
+   - Edit like => 
+2. Create Ruleset for distinguish SATA and SSD
+   - Go => Pools => Create => Point to CRUSH => Click + Button => Setup as below
+   - For SATA =>  
+   - For SSD => 
+   - then Click Create Crush Rule
+3. Create Pool hdd & ssd
+   - Go => Pools > Create => Setup as below
+   - For SATA => 
+   - For SSD =>
+   
+#################   
+## BACK TO CLI on Ceph01 ##
+#################
 
-rados -p test-pool ls
-ceph osd map test-pool test-file.img
+#######################
+# Upload file testing #
+#######################
+$ fallocate -l 2G file.img
+$ sudo rados put file.img file.img --pool=test-sata
+$ sudo rados put file.img file.img --pool=test-ssd
 
-rados get test-file.img test-file.img --pool=test-pool
+#######################
+# Check File Location #
+#######################
+$ sudo rados -p test-sata ls => Success if show file.img
+$ sudo ceph osd map test-sata file.img => 
+  osdmap e469 pool 'test-sata' (24) object 'file.img' -> pg 24.b0eee320 (24.0) -> up ([11,7,5], p11) acting ([11,7,5], p11)
+  NOTE: 11,7,5 is OSDs where file.img replicated
+
+DO SAME ON SSD POOL IF YOU CURIUS
+
+##########################
+# DOWNLOAD FILE FROM OSD #
+##########################
+$ sudo rados get file.img file.img --pool=test-sata
+$ ls file.img
