@@ -100,16 +100,16 @@ $ ceph orch daemon add osd ceph03:data_devices=/dev/sdb,/dev/sdc
 ##################
 1. Monitor Service Setup
    - Go => Cluster => Service => Click mon => Click Edit
-   - Edit like => 
+   - Edit like => https://github.com/vourteen14/Ceph-Ansible-Multiple-Backend/blob/main/Screenshot%202022-07-04%20000341.png
 2. Create Ruleset for distinguish SATA and SSD
    - Go => Pools => Create => Point to CRUSH => Click + Button => Setup as below
-   - For SATA =>  
-   - For SSD => 
+   - For SATA =>  https://github.com/vourteen14/Ceph-Ansible-Multiple-Backend/blob/main/Screenshot%202022-07-04%20000801.png
+   - For SSD => https://github.com/vourteen14/Ceph-Ansible-Multiple-Backend/blob/main/Screenshot%202022-07-04%20000830.png
    - then Click Create Crush Rule
 3. Create Pool hdd & ssd
    - Go => Pools > Create => Setup as below
-   - For SATA => 
-   - For SSD =>
+   - For SATA => https://github.com/vourteen14/Ceph-Ansible-Multiple-Backend/blob/main/Screenshot%202022-07-04%20001252.png
+   - For SSD => https://github.com/vourteen14/Ceph-Ansible-Multiple-Backend/blob/main/Screenshot%202022-07-04%20001316.png
    
 #################   
 ## BACK TO CLI on Ceph01 ##
