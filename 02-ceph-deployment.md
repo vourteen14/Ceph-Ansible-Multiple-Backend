@@ -25,7 +25,7 @@ Edit file group_vars/all.yml
   - `````ceph_origin: repository`````
   - `````ceph_repository: community`````
   - `````ceph_stable_release: pacific`````
-  - `````monitor_interface: ens160`````
+  - `````monitor_interface: [MONITOR_INTERFACE]`````
   - `````monitor_address: [MONITOR_CEPH_ADDR]`````
   - `````monitor_address_block: [CEPH_NETWORK]`````
   - `````public_network: [CEPH_NETWORK]`````
@@ -49,10 +49,10 @@ Edit file group_vars/osds.yml
   - `````osd_auto_discovery: false`````
   - `````lvm_volumes:`````
   - `````- data: hdd-data-lv`````
-  - `````    data_vg: hdd-data-vg`````
-  - `````    journal_lv: hdd-journal-lv`````
-  - `````    crush_device_class: hdd`````
+  -   `````  data_vg: hdd-data-vg`````
+  -   `````  journal_lv: hdd-journal-lv`````
+  -   `````  crush_device_class: hdd`````
   - `````- data: ssd-data-lv`````
-  - `````    data_vg: ssd-data-vg`````
-  - `````    journal_lv: ssd-journal-lv`````
-  - `````    crush_device_class: ssd`````
+  -   `````  data_vg: ssd-data-vg`````
+  -   `````  journal_lv: ssd-journal-lv`````
+  -   `````  crush_device_class: ssd`````
