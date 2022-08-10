@@ -7,7 +7,7 @@ Create Python Virtual Envirotment
 Clone Ceph Repository
 - `````git clone https://github.com/ceph/ceph-ansible.git`````
 - `````cd ceph-ansible`````
-- `````git checkout stable-6.0`````
+- `````git checkout stable-5.0`````
 - `````pip install -r requirements.txt`````
 
 Copy Requirement Files
@@ -49,9 +49,9 @@ Edit file group_vars/osds.yml
   - `````osd_auto_discovery: false`````
   - `````lvm_volumes:`````
   - `````- data: hdd-data-lv`````
-    `````  data_vg: hdd-data-vg`````
-    `````  journal_lv: hdd-journal-lv`````
-    `````  crush_device_class: hdd`````
+  - `````  data_vg: hdd-data-vg`````
+  - `````  journal_lv: hdd-journal-lv`````
+  - `````  crush_device_class: hdd`````
   - `````- data: ssd-data-lv`````
     `````  data_vg: ssd-data-vg`````
     `````  journal_lv: ssd-journal-lv`````
