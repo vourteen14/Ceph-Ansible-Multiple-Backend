@@ -49,10 +49,10 @@ Edit file group_vars/osds.yml
   - `````osd_auto_discovery: false`````
   - `````lvm_volumes:`````
   - `````- data: hdd-data-lv`````
-  - `````  data_vg: hdd-data-vg`````
-  - `````  journal_lv: hdd-journal-lv`````
-  - `````  crush_device_class: hdd`````
+  - `````    data_vg: hdd-data-vg`````
+  - `````    journal_lv: hdd-journal-lv`````
+  - `````    crush_device_class: hdd`````
   - `````- data: ssd-data-lv`````
-  - `````  data_vg: ssd-data-vg`````
-  - `````  journal_lv: ssd-journal-lv`````
-  - `````  crush_device_class: ssd`````
+  - `````    data_vg: ssd-data-vg`````
+  - `````    journal_lv: ssd-journal-lv`````
+  - `````    crush_device_class: ssd`````
